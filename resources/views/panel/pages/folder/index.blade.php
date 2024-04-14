@@ -31,7 +31,7 @@
                             <a type="button" class="btn btn-block btn-default " href="{{Route('panel.folder.create',[ 'parent_id' =>  $folder->id]) }}">Create Folder</a>
                         </div>
                         <div class="col-md-4">
-                            <a type="button" class="btn btn-block btn-default " href="{{ Route('panel.folder.sheet.create',[ 'parent_id' =>   $folder->id ]) }}">Create Object</a>
+                            <a type="button" class="btn btn-block btn-default " href="{{ Route('panel.folder.sheet.create',[ 'folder_id' =>   $folder->id ]) }}">Create Sheet</a>
                         </div>
                     </div>
                 </div>
@@ -76,12 +76,12 @@
                         </tr>
                     @endforeach
                     @foreach($Sheets as $Sheet)
-                        <tr data-href="{{Route('panel.folder.sheet.edit',[ 'id' => $Sheet->id]) }}">
-                            <td><i class="fa fa-fw fa-file"></i>{{$Sheet->id}} </td>
-                            <td>{{$Sheet->name.($Sheet->hidden == true ?' (Hidden)':'')}} </td>
+                        <tr data-href="{{Route('panel.folder.sheet.edit',[ 'folder_id' => $folder->id,'id' => $Sheet->id]) }}">
+                            <td><i class="fa fa-fw fa-file mr-2"></i>{{$Sheet->id}} </td>
+                            <td>{{$Sheet->title.($Sheet->hidden == true ?' (Hidden)':'')}} </td>
                             <td>{{$Sheet->description}} </td>
                             <td>
-                                <form action="{{Route('panel.folder.sheet.edit',[ 'id' => $Sheet->id])}} " method="post">
+                                <form action="{{Route('panel.folder.sheet.edit',[ 'folder_id' => $folder->id,'id' => $Sheet->id])}} " method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <div class="row">
@@ -110,7 +110,6 @@
 
         document.addEventListener("DOMContentLoaded",() =>{
             const rows = document.querySelectorAll("tr[data-href]");
-            console.log(rows);
             rows.forEach(row =>{
                 row.addEventListener("click",() => {
                     window.location.href = row.dataset.href;
@@ -128,9 +127,5 @@
                 'autoWidth'   : true
             });
         });
-    </script>
-
-    <script>
-        $('.sidebar-menu').find('.Storage').addClass('active');
     </script>
 @stop

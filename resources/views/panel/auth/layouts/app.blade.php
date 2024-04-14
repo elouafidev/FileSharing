@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta url="{{config('app.url')}}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="{{asset('panel/plugins/bootstrap/dist/css/bootstrap.min.css')}}">
     {{-- Font Awesome --}}

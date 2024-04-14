@@ -3,30 +3,16 @@
 @section('title', 'Create Folder')
 @section('head')
 @stop
-
 @section('content')
     <div class="container">
         <div class="box box-primary">
             <div class="box-header with-border">
                 <h3 class="box-title">Create Folder</h3>
-                <div style="padding-left: 10px;">
-                    @if (count($errors) > 0)
-                        <div class="container alert alert-danger alert-dismissible">
-                            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-                            <ul >
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
-                    @if ($message = Session::get('success'))
-                        <div class="container alert alert-success alert-dismissible">
-                            <button type="button" class="close" data-dismiss="alert">×</button>
-                            <strong>{{ $message }}</strong>
-                        </div>
-                    @endif
-                </div>
+            </div>
+            <div class="box-header with-border paths">
+                @foreach(\App\Models\Folder::find($parent_id)->Path() as $parentFolder)
+                    <a href="{{ Route('panel.folder.index',[ 'id' => $parentFolder['id']]) }}" >{{$parentFolder['name']}}</a><a>/</a>
+                @endforeach
             </div>
             {{-- /.box-header --}}
             {{-- form start --}}
@@ -36,13 +22,13 @@
                     <input name="parent_id" type="hidden" value="{{$parent_id}}">
                     <div class="form-group">
                         <label>Name :</label> <br>
-                        <input type="text" class="form-control" name="name" value="{{old('Name')}}">
+                        <input type="text" class="form-control" name="name" value="{{old('name')}}">
 
                     </div>
 
                     <div class="form-group">
                         <label>Description :</label> <br>
-                        <textarea class="form-control" name="description">{{old('Description')}}</textarea>
+                        <textarea class="form-control" name="description">{{old('description')}}</textarea>
 
                     </div>
                     <div class="form-group">
@@ -51,7 +37,6 @@
                         <input type="checkbox"  name="hidden" value="1">
 
                     </div>
-
                 </div>
                 <div class="box-footer">
                     <a href="{{ Route('panel.folder.index',['id' => $parent_id])}} " class="btn btn-info "> Retour </a>
@@ -62,7 +47,4 @@
     </div>
 @stop
 @section('script')
-    <script>
-        $('.sidebar-menu').find('.Storage').addClass('active');
-    </script>
 @stop

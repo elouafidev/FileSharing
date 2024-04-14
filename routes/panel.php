@@ -11,7 +11,7 @@ Route::get('/',function (){return \Illuminate\Support\Facades\Redirect::route('p
 
 Route::group([
     'as' => 'panel.',
-    'middleware' =>['auth','role:admin'],
+    'middleware' =>['auth'/*,'role:admin'*/],
 ],function(){
     Route::get('/home', [PanelControllers\HomeController::class, 'index'])->name('home');
     Route::get('/', function () {
@@ -30,16 +30,15 @@ Route::group([
         // Route for edit Folder
         Route::get('{id}/edit', [PanelControllers\FolderController::class,'edit'])->name('edit');
         Route::put('{id}/edit', [PanelControllers\FolderController::class,'update']);
-
-        route::group(['prefix' => 'sheet','as' => 'sheet.'],function (){
-            Route::get('/create', 'ObjectController@create')->name('create');
-            Route::post('/create', 'ObjectController@store');
-            Route::delete('/{id}', 'ObjectController@destroy');
-            Route::get('/{id}', 'ObjectController@edit')->name('edit');
-            Route::put('/{id}', 'ObjectController@update');
+        route::group(['prefix' => '{folder_id}/sheet','as' => 'sheet.'],function (){
+            Route::get('create', [PanelControllers\SheetController::class,'create'])->name('create');
+            Route::post('/create', [PanelControllers\SheetController::class,'store']);
+            Route::delete('/{id}', [PanelControllers\SheetController::class,'destroy']);
+            Route::get('/{id}', [PanelControllers\SheetController::class,'edit'])->name('edit');
+            Route::put('/{id}', [PanelControllers\SheetController::class,'update']);
         });
-
     });
+
 
 });
 

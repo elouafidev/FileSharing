@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string('file_name');
-            $table->string('url_host')->nullable();
-            $table->string('size_file')->nullable();
-            $table->string('password_file')->nullable();
+            $table->string('name');
+            $table->string('url')->nullable();
+            $table->string('size')->nullable();
+            $table->string('password')->nullable();
             $table->integer('like_count')->default(0);
             $table->integer('download_count')->default(0);
             $table->foreignId('sheet_id')->constrained('sheets');

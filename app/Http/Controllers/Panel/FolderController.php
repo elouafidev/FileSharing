@@ -76,17 +76,22 @@ class FolderController extends Controller
 
 
     public function update(Request $request, $id){
-        $Folder = Folder::find($id);
-        $Folder->Name = $request->input('Name');
-        $Folder->Description = $request->input('Description');
-        $Folder->icon = $request->input('icon');
-        $Folder->hidden = $request->input('hidden');
-        $Folder->ParentFolder_id = $request->input('ParentFolder_id');
+        if(empty($Folder = Folder::find($id)) ) abort(404);
+        $request->validate([
+            'name' => ['required',Rule::unique('folders')->where(
+                function ($query) use($Folder) {
+                    return $query->where('parent_id', '=',$Folder->parent_id );
+                })
+            ],
+        ]);
+        $Folder->name = $request->input('name');
+        $Folder->description = $request->input('description');
+        $Folder->hidden = $request->input('hidden') == 1;
         $Folder->save();
 
 
 
-        return redirect(Route('Storage',['Folder_id' => $Folder->ParentFolder_id ],false));
+        return Redirect::route('panel.folder.index',['id' => $Folder->parent_id ]);
     }
     function getPathFolders($ParentFolder_id)
     {

@@ -19,7 +19,7 @@ return new class extends Migration
             $table->boolean('hidden')->default(false);
             $table->integer('like_count')->nullable();
             $table->foreignId('created_user_id')->nullable()->constrained('users');
-            $table->foreignId('Updated_user_id')->nullable()->constrained('users');
+            $table->foreignId('updated_user_id')->nullable()->constrained('users');
             $table->foreignId('folder_id')->nullable()->constrained('folders');
             $table->timestamps();
         });

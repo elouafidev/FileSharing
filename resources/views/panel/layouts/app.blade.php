@@ -15,6 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{asset('panel/plugins/font-awesome/css/font-awesome.min.css')}}">
     {{-- Ionicons --}}
     <link rel="stylesheet" href="{{asset('panel/plugins/Ionicons/css/ionicons.min.css')}}">
+    <link rel="stylesheet" href="{{asset("panel/plugins/toastr/toastr.min.css")}}">
     {{-- Theme style --}}
     <link rel="stylesheet" href="{{asset('panel/css/AdminLTE.min.css')}}">
     {{-- AdminLTE Skins. We have chosen the skin-blue for this starter
@@ -143,8 +144,11 @@ desired effect
 <script src="{{asset('panel/plugins/jquery-slimscroll/jquery.slimscroll.min.js')}}"></script>
 {{-- FastClick --}}
 <script src="{{asset('panel/plugins/fastclick/lib/fastclick.js')}}"></script>
+
+<script src="{{asset("panel/plugins/toastr/toastr.min.js")}}"></script>
 {{-- AdminLTE App --}}
 <script src="{{asset('panel/js/adminlte.min.js')}}"></script>
+<script src="{{asset('panel/js/custom.js')}}"></script>
 
 {{-- Ionic Framework --}}
 <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
@@ -153,5 +157,15 @@ desired effect
 {{-- Optionally, you can add Slimscroll and FastClick plugins.
      Both of these plugins are recommended to enhance the
      user experience. --}}
+<script>
+    @if ($message = Session::get('success'))
+    toastr.success('{{ $message }}');
+    @endif
+    @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+    toastr.error('{{ $error }}');
+    @endforeach
+    @endif
+</script>
 </body>
 </html>
