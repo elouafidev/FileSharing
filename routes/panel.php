@@ -37,6 +37,13 @@ Route::group([
             Route::get('/{id}', [PanelControllers\SheetController::class,'edit'])->name('edit');
             Route::put('/{id}', [PanelControllers\SheetController::class,'update']);
         });
+
+    });
+    route::group(['prefix' => 'contact','as' => 'contact.'],function (){
+        Route::get('/', [PanelControllers\ContactController::class,'index'])->name('index');
+        Route::delete('/{id}', [PanelControllers\ContactController::class,'destroy']);
+        Route::get('/{id}', [PanelControllers\ContactController::class,'edit'])->name('edit');
+        Route::put('/{id}', [PanelControllers\ContactController::class,'update']);
     });
 
 
