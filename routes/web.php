@@ -21,4 +21,7 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home');
 Route::get('/FileManager', [App\Http\Controllers\Front\FileManagerController::class, 'index'])->name('file_manager');
 Route::get('/FileManager/Sheet', [App\Http\Controllers\Front\SheetController::class, 'index'])->name('file_manager.sheet');
+Route::get('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
+Route::post('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'store'])->name('contact.store');
+
 

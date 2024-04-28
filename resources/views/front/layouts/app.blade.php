@@ -8,7 +8,7 @@
     <!-- Fav Icon  -->
     <link rel="shortcut icon" href="{{asset("images/favicon.png")}}">
     <!-- Page Title  -->
-    <title>Blank - Layout | DashLite Admin Template</title>
+    <title>@yield('title')</title>
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset("assets/css/dashlite.min.css?ver=3.1.2")}}">
     <link id="skin-default" rel="stylesheet" href="{{asset("assets/css/theme.css?ver=3.1.2")}}">
@@ -28,7 +28,7 @@
             ],
             [
                 'name' => 'Contact-Nous',
-                'route' => 'home',
+                'route' => 'contact',
                 'icon' => 'icon ni ni-text-rich'
             ],
         ])
