@@ -59,6 +59,12 @@ class FolderController extends Controller
         $Folder->save();
         return Redirect::route('panel.folder.index',['id' => $request->input('parent_id')]);
     }
+
+
+    public function show($id)
+    {
+        return Redirect::route('panel.folder.index',['id' => $id]);
+    }
     public  function destroy($id){
         $Folder = Folder::find($id);
         $ParentFolder = $Folder->ParentFolder_id;

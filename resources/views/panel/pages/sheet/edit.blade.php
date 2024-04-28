@@ -44,6 +44,10 @@
                         <label>Description :</label> <br>
                         <textarea class="form-control" name="description">{{old('description',$sheet->description)}}</textarea>
                     </div>
+                    <div class="form-group Description">
+                        <label>Content ({{__('Documentation')}}):</label> <br>
+                        <textarea  class="form-control" id="content" name="content" rows="10" cols="80">{{old('content',$sheet->content)}}</textarea>
+                    </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">
@@ -130,17 +134,20 @@
 @section('script')
     <!-- iCheck 1.0.1 -->
     <script src="{{asset('panel/plugins/iCheck/icheck.min.js')}}"></script>
+    <script src="{{asset("panel/plugins/ckeditor/ckeditor.js")}}"></script>
     <script>
 
-        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
-            checkboxClass: 'icheckbox_minimal-blue',
-            radioClass   : 'iradio_minimal-blue'
-        })
-        var filen = {{empty(old('add_files')) ? 0 : count(old('add_files')) }};
+        $(function(){
+            CKEDITOR.replace('content');
+            $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+                checkboxClass: 'icheckbox_minimal-blue',
+                radioClass   : 'iradio_minimal-blue'
+            });
+            var filen = {{empty(old('add_files')) ? 0 : count(old('add_files')) }};
 
-        $('button[name=add_file]').on( "click", function (){
-            filen= filen+1;
-            $('#filesgroup').append(`<div class="files row">
+            $('button[name=add_file]').on( "click", function (){
+                filen= filen+1;
+                $('#filesgroup').append(`<div class="files row">
                                     <label>ADD File ID: ${filen}</label> <br>
                                     <button type="button" name="delete_file" class="btn btn-danger">{{__('delete')}}</button>
                                         <div class="col-12">
@@ -168,14 +175,15 @@
                                             </div>
                                         </div>
                                     </div>`);
-            $('button[name=delete_file]').on( "click", function () {
+                $('button[name=delete_file]').on( "click", function () {
+                    $(this).parent().remove();
+                });
+            });
+            $('button[name=delete_data_file]').on( "click", function () {
+                $(this).parent().parent().append(`<input type="text" name="dfiles[]" value="${$(this).data('id')}" hidden="hidden">`);
                 $(this).parent().remove();
             });
-        });
-        $('button[name=delete_data_file]').on( "click", function () {
-            $(this).parent().parent().append(`<input type="text" name="dfiles[]" value="${$(this).data('id')}" hidden="hidden">`);
-            $(this).parent().remove();
-        });
+        })
 
     </script>
 @stop

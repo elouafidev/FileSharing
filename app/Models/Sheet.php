@@ -42,4 +42,9 @@ class Sheet extends Model
         return (bool)$this->hidden ?: (($ParentFolder =$this->Folder()) == null ? false : $ParentFolder->isHidden());
     }
 
+    public function createrUser()
+    {
+        return $this->belongsTo(User::class,'created_user_id','id');
+    }
+
 }

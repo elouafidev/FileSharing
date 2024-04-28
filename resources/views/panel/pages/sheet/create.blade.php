@@ -44,6 +44,10 @@
                         <label>Description :</label> <br>
                         <textarea class="form-control" name="description">{{old('description')}}</textarea>
                     </div>
+                    <div class="form-group Description">
+                        <label>Content ({{__('Documentation')}}):</label> <br>
+                        <textarea class="form-control" name="content">{{old('content')}}</textarea>
+                    </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">

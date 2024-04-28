@@ -33,10 +33,13 @@ class SheetController extends Controller
     {
         $request->validate([
             'title' => ['required','unique:sheets,Name,'.$folder_id.',folder_id'],
+            'description' => ['required'],
+            'hidden' => ['required','boolean'],
         ]);
         $Sheet = new Sheet();
         $Sheet->title = $request->input('title');
         $Sheet->description = $request->input('description');
+        if($request->has('content')) $Sheet->content = $request->input('content');
         $Sheet->folder_id = $folder_id;
         $Sheet->hidden = $request->input('hidden');
         $Sheet->created_user_id = auth::id();
@@ -78,11 +81,14 @@ class SheetController extends Controller
     public function update($folder_id,$id,request $request){
         $request->validate([
             'title' => ['required','unique:sheets,Name,'.$id.',id,ParentFolder_id,ParentFolder_id'],
+            'description' => ['required'],
+            'hidden' => ['required','boolean'],
         ]);
 
         $Sheet = Sheet::find($id);
         $Sheet->title = $request->input('title');
         $Sheet->description = $request->input('description');
+        if($request->has('content')) $Sheet->content = $request->input('content');
         $Sheet->hidden = $request->input('hidden');
         $Sheet->updated_user_id = auth::id();
         $Sheet->save();
