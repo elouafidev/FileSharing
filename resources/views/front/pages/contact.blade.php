@@ -10,7 +10,7 @@
                             <div class="nk-block-head-content">
                                 <h2 class="nk-block-title fw-normal">{{__('Contact Us')}}</h2>
                                 <div class="nk-block-des">
-                                    <p class="lead">Vous avez repéré un bug dans notre système ou avez une suggestion pour une nouvelle fonctionnalité ? Votre contribution est précieuse pour nous aider à améliorer notre plateforme. Que vous ayez rencontré un problème technique, une anomalie d'affichage ou que vous ayez simplement une idée brillante à partager, nous sommes tout ouïe ! Notre équipe technique est prête à examiner vos retours et à travailler activement pour résoudre tout problème et intégrer de nouvelles fonctionnalités qui amélioreront votre expérience utilisateur. N'hésitez pas à nous faire part de vos observations ; ensemble, nous pouvons façonner l'avenir de notre plateforme pour répondre au mieux à vos besoins et à vos attentes. Contactez-nous dès maintenant pour partager vos idées et vos retours d'expérience !</p>
+                                    <p class="lead">Signalez un bug ou suggérez une fonctionnalité ! Vos commentaires sont essentiels pour améliorer notre plateforme. Contactez-nous pour toute anomalie ou idée. Notre équipe est là pour vous écouter et améliorer votre expérience utilisateur. Ensemble, façonnons l'avenir de notre plateforme !</p>
                                 </div>
                             </div>
                         </div><!-- .nk-block-head -->
@@ -18,13 +18,14 @@
 
                             <div class="card card-bordered">
                                 <div class="card-inner">
-                                    <form action="#" class="form-validate">
+                                    <form action="{{route('contact')}}" class="form-validate" method="post">
+                                        @csrf
                                         <div class="row g-gs">
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="form-label" for="fv-full-name">{{__('Full Name')}}</label>
                                                     <div class="form-control-wrap">
-                                                        <input type="text" class="form-control" id="fv-full-name" name="fv-full-name" required>
+                                                        <input type="text" class="form-control" id="fv-full-name" name="name" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -35,7 +36,7 @@
                                                         <div class="form-icon form-icon-right">
                                                             <em class="icon ni ni-mail"></em>
                                                         </div>
-                                                        <input type="text" class="form-control" id="fv-email" name="fv-email" required>
+                                                        <input type="text" class="form-control" id="fv-email" name="email" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -43,7 +44,7 @@
                                                 <div class="form-group">
                                                     <label class="form-label" for="fv-subject">{{__('Subject')}}</label>
                                                     <div class="form-control-wrap">
-                                                        <input type="text" class="form-control" id="fv-subject" name="fv-subject" required>
+                                                        <input type="text" class="form-control" id="fv-subject" name="subject" required>
                                                     </div>
                                                 </div>
                                             </div>
@@ -51,7 +52,7 @@
                                                 <div class="form-group">
                                                     <label class="form-label" for="fv-message">{{__('Message')}}</label>
                                                     <div class="form-control-wrap">
-                                                        <textarea class="form-control form-control-sm" id="fv-message" name="fv-message" placeholder="{{__('Write your message')}}" required></textarea>
+                                                        <textarea class="form-control form-control-sm" id="fv-message" name="message" placeholder="{{__('Write your message')}}" required></textarea>
                                                     </div>
                                                 </div>
                                             </div>

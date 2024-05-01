@@ -45,8 +45,11 @@ Route::group([
         Route::get('/{id}', [PanelControllers\ContactController::class,'edit'])->name('edit');
         Route::put('/{id}', [PanelControllers\ContactController::class,'update']);
     });
-
-
 });
-
-Auth::routes();
+route::group(['as' => 'panel.'],function (){
+    Auth::routes([
+        'register' => false, // Registration Routes...
+        'reset' => false, // Password Reset Routes...
+        'verify' => false, // Email Verification Routes...
+    ]);
+});

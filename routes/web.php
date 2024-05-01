@@ -23,5 +23,11 @@ Route::get('/FileManager', [App\Http\Controllers\Front\FileManagerController::cl
 Route::get('/FileManager/Sheet', [App\Http\Controllers\Front\SheetController::class, 'index'])->name('file_manager.sheet');
 Route::get('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
 Route::post('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'store'])->name('contact.store');
+Route::get('login', [App\Http\Controllers\Front\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::post('login', [App\Http\Controllers\Front\Auth\LoginController::class, 'login']);
+Route::post('logout', [App\Http\Controllers\Front\Auth\LoginController::class, 'logout'])->name('logout');
+Route::get('register', [App\Http\Controllers\Front\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
+Route::post('register', [App\Http\Controllers\Front\Auth\RegisterController::class, 'register']);
+
 
 

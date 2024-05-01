@@ -12,6 +12,7 @@
     <!-- StyleSheets  -->
     <link rel="stylesheet" href="{{asset("assets/css/dashlite.min.css?ver=3.1.2")}}">
     <link id="skin-default" rel="stylesheet" href="{{asset("assets/css/theme.css?ver=3.1.2")}}">
+    <link rel="stylesheet" href="{{asset("plugins/toastr/toastr.min.css")}}">
     @yield('head')
 </head>
 
@@ -59,7 +60,18 @@
 <!-- JavaScript -->
 <script src="{{asset("assets/js/bundle.js?ver=3.1.2")}}"></script>
 <script src="{{asset("assets/js/scripts.js?ver=3.1.2")}}"></script>
+<script src="{{asset("plugins/toastr/toastr.min.js")}}"></script>
 @yield('script')
+<script>
+    @if ($message = Session::get('success'))
+    toastr.success('{{ $message }}');
+    @endif
+    @if (count($errors) > 0)
+    @foreach ($errors->all() as $error)
+    toastr.error('{{ $error }}');
+    @endforeach
+    @endif
+</script>
 </body>
 
 </html>

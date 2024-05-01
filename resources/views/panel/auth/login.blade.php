@@ -16,7 +16,7 @@
                     {{ \Session::get('message') }}
                 </p>
             @endif
-                <form  method="POST" action="{{ route('login') }}">
+                <form  method="POST" action="{{ route('panel.login') }}">
                     {{ csrf_field() }}
                     <div class="form-group has-feedback  {{ $errors->has('email') ? ' has-error' : '' }}">
                         <input type="email" name="email" class="form-control " placeholder="Email">
