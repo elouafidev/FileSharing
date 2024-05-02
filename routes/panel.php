@@ -11,7 +11,7 @@ Route::get('/',function (){return \Illuminate\Support\Facades\Redirect::route('p
 
 Route::group([
     'as' => 'panel.',
-    'middleware' =>['auth'/*,'role:admin'*/],
+    'middleware' =>['auth','role:admin'],
 ],function(){
     Route::get('/home', [PanelControllers\HomeController::class, 'index'])->name('home');
     Route::get('/', function () {

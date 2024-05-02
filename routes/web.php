@@ -28,6 +28,7 @@ Route::post('login', [App\Http\Controllers\Front\Auth\LoginController::class, 'l
 Route::post('logout', [App\Http\Controllers\Front\Auth\LoginController::class, 'logout'])->name('logout');
 Route::get('register', [App\Http\Controllers\Front\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::post('register', [App\Http\Controllers\Front\Auth\RegisterController::class, 'register']);
-
+Route::get('auth/google', [App\Http\Controllers\Front\Auth\GoogleAuthController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [App\Http\Controllers\Front\Auth\GoogleAuthController::class, 'handleGoogleCallback']);
 
 

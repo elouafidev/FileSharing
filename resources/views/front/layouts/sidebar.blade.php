@@ -7,9 +7,9 @@
         </div>
         <div class="nk-sidebar-brand">
             <a href="{{route('home')}}" class="logo-link nk-sidebar-logo">
-                <img class="logo-light logo-img" src="{{asset("assets/images/logo.png")}}" srcset="{{asset("assets/images/logo2x.png")}} 2x" alt="logo">
+                {{--<img class="logo-light logo-img" src="{{asset("assets/images/logo.png")}}" srcset="{{asset("assets/images/logo2x.png")}} 2x" alt="logo">
                 <img class="logo-dark logo-img" src="{{asset("assets/images/logo-dark.png")}}" srcset="{{asset("assets/images/logo-dark2x.png")}} 2x" alt="logo-dark">
-            </a>
+            --}}{{config('app.name')}}</a>
         </div>
     </div><!-- .nk-sidebar-element -->
     <div class="nk-sidebar-element nk-sidebar-body">

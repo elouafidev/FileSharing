@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="{{asset("assets/css/dashlite.min.css?ver=3.1.2")}}">
     <link id="skin-default" rel="stylesheet" href="{{asset("assets/css/theme.css?ver=3.1.2")}}">
     <link rel="stylesheet" href="{{asset("plugins/toastr/toastr.min.css")}}">
+    <style>
+        .nk-sidebar-logo{
+            font-weight: 700;
+            font-size: large;
+            color: white;
+        }
+    </style>
     @yield('head')
 </head>
 
