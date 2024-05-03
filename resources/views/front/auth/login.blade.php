@@ -12,7 +12,7 @@
                         </div>
                     </div>
                 </div>
-                <form action="{{route('login')}}">
+                <form action="{{route('login')}}" method="post">
                     @csrf
                     <div class="form-group">
                         <div class="form-label-group">

@@ -33,13 +33,13 @@
                         <th>Tools</th>
                     <tbody>
                     @foreach($Contacts as $Contact)
-                        <tr data-href="{{route('showContact',['id'=>$Contact->id])}}">
+                        <tr data-href="{{route('panel.contact.show',['id'=>$Contact->id])}}">
                             <td>{{$Contact->id}} </td>
                             <td>{{$Contact->full_name}} </td>
                             <td>{{$Contact->email}} </td>
                             <td>{{$Contact->subject}} </td>
                             <td>
-                                <form action="{{route('showContact',['id'=>$Contact->id])}} " method="post">
+                                <form action="{{route('panel.contact.show',['id'=>$Contact->id])}} " method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('DELETE') }}
                                     <div class="row">

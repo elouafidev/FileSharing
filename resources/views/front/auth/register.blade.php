@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label class="form-label" for="name">{{__('Name')}}</label>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control form-control-lg  @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" id="name" placeholder="{{__('Enter your name')}}">
+                            <input type="text" class="form-control form-control-lg  @error('name') is-invalid @enderror" value="{{ old('name') }}" required autocomplete="name" id="name" name="name" placeholder="{{__('Enter your name')}}">
                             @error('name')
                             <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
