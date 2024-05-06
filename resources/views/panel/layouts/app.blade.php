@@ -64,7 +64,7 @@ desired effect
         {{-- Logo --}}
         <a href="{{route('panel.home')}}" class="logo">
             {{-- mini logo for sidebar mini 50x50 pixels --}}
-            <span class="logo-mini"><b>T</b>PL</span>
+            <span class="logo-mini"><b>FS</b>P</span>
             {{-- logo for regular state and mobile devices --}}
             <span class="logo-lg"><b>{{config('app.name')}}</b> PANEL</span>
         </a>
@@ -162,9 +162,9 @@ desired effect
     toastr.success('{{ $message }}');
     @endif
     @if (count($errors) > 0)
-    @foreach ($errors->all() as $error)
-    toastr.error('{{ $error }}');
-    @endforeach
+        @foreach ($errors->all() as $error)
+        toastr.error('{{ $error }}');
+        @endforeach
     @endif
 </script>
 </body>

@@ -7,8 +7,8 @@ use Illuminate\Http\Request;
 
 class AccessController extends Controller
 {
-    public function redirect()
+    public function index()
     {
-
+        return view('front.pages.no_have_access');
     }
 }

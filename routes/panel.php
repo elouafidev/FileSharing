@@ -45,6 +45,13 @@ Route::group([
         Route::delete('/{id}', [PanelControllers\ContactController::class,'destroy'])->name('destroy');
         Route::put('/{id}', [PanelControllers\ContactController::class,'update'])->name('update');
     });
+    Route::group([
+        'as' => 'user.',
+        'prefix' => 'user',
+    ],function (){
+        Route::get('profile',[PanelControllers\ProfileController::class,'index'])->name('profile');
+        Route::put('profile',[PanelControllers\ProfileController::class,'update'])->name('update');
+    });
 });
 route::group(['as' => 'panel.'],function (){
     Auth::routes([

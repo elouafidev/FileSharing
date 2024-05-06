@@ -22,10 +22,9 @@ class SheetController extends Controller
     {
 
         if(Folder::find($folder_id) == null) abort(404);
-        $data=[
+        $data = [
             'folder_id' => $folder_id,
         ];
-
         return view('panel.pages.sheet.create', $data);
 
     }
@@ -58,7 +57,7 @@ class SheetController extends Controller
                 $File->save();
             }
         }
-        return Redirect::route('panel.folder.index',['folder_id' => $folder_id]);
+        return Redirect::route('panel.folder.index',['folder_id' => $folder_id])->with('success', 'Sheet Created successfully');;
     }
 
 
@@ -66,7 +65,7 @@ class SheetController extends Controller
         File::where('sheet_id',$id)->delete();
         $folder_id = Sheet::find($id)->folder_id;
         Sheet::find($id)->delete();
-        return Redirect::route('panel.folder.index',['id' => $folder_id]);
+        return Redirect::route('panel.folder.index',['id' => $folder_id])->with('success', 'Sheet deleted successfully');;
     }
 
     public function edit($folder_id,$id){
@@ -84,7 +83,6 @@ class SheetController extends Controller
             'description' => ['required'],
             'hidden' => ['required','boolean'],
         ]);
-
         $Sheet = Sheet::find($id);
         $Sheet->title = $request->input('title');
         $Sheet->description = $request->input('description');
@@ -94,8 +92,8 @@ class SheetController extends Controller
         $Sheet->save();
 
         $Sheet_id = $Sheet->id;
-        $Files =$request->input('Files');
-        $AFiles =$request->input('AFiles');
+        $Files =$request->input('files');
+        $AFiles =$request->input('afiles');
         $deleteFiles =$request->input('dfiles');
         if($deleteFiles != null){
             foreach ($deleteFiles as $dfile){
@@ -122,6 +120,7 @@ class SheetController extends Controller
                 $File->sheet_id = $Sheet_id;
                 $File->save();
             }
-        return Redirect::route('panel.folder.index',['index' => $Sheet->folder_id]);
+        return Redirect::route('panel.folder.index',['index' => $Sheet->folder_id])
+            ->with('success', 'Sheet updated successfully');
     }
 }

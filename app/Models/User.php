@@ -62,4 +62,13 @@ class User extends Authenticatable
         $countRoles = $this->Roles()->where('name',$Role)->count();
         return $countRoles == 1;
     }
+    public function isAdmin()
+    {
+        return $this->roles->pluck( 'name' )->contains( 'admin' );
+    }
+
+    public function isVisitor()
+    {
+        return $this->roles->pluck( 'name' )->contains( 'visitor' );
+    }
 }

@@ -14,7 +14,7 @@
                 <ul class="nk-quick-nav">
                     <li class="dropdown user-dropdown">
                         @guest
-                            @if (Route::has('login'))
+                            @if(Route::has('login'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
@@ -50,9 +50,12 @@
                                 </div>
                                 <div class="dropdown-inner">
                                     <ul class="link-list">
+                                        <li><a href="{{route('profile')}}"><em class="icon ni ni-user-alt"></em><span>{{__('Profile')}}</span></a></li>
+                                    </ul>
+                                    <ul class="link-list">
                                         <li>
                                             <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
-                                                <em class="icon ni ni-signout"></em><span>Sign out</span>
+                                                <em class="icon ni ni-signout"></em><span>{{__('Sign out')}}</span>
                                             </a>
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                                 @csrf

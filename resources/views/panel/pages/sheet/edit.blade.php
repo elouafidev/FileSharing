@@ -101,25 +101,25 @@
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>File Name :</label>
-                                            <input type="text" class="form-control" name="Files[{{$key}}][name]" value="{{$File['name']}}">
+                                            <input type="text" class="form-control" name="files[{{$key}}][name]" value="{{$File['name']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>url Host :</label>
-                                            <input type="url" class="form-control" name="Files[{{$key}}][url]" value="{{$File['url']}}">
+                                            <input type="url" class="form-control" name="files[{{$key}}][url]" value="{{$File['url']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Password :</label>
-                                            <input type="text" class="form-control" name="Files[{{$key}}][password]" value="{{$File['password']}}">
+                                            <input type="text" class="form-control" name="files[{{$key}}][password]" value="{{$File['password']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
                                             <label>Size :</label>
-                                            <input type="text" class="form-control" name="Files[{{$key}}][size]" value="{{$File['size']}}">
+                                            <input type="text" class="form-control" name="files[{{$key}}][size]" value="{{$File['size']}}">
                                         </div>
                                     </div>
                                 </div>
@@ -153,25 +153,25 @@
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>File Name :</label>
-                                                <input type="text" class="form-control" name="Files[${filen}][name]" >
+                                                <input type="text" class="form-control" name="afiles[${filen}][name]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>url Host :</label>
-                                                <input type="url" class="form-control" name="Files[${filen}][url]" >
+                                                <input type="url" class="form-control" name="afiles[${filen}][url]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Password :</label>
-                                                <input type="text" class="form-control" name="Files[${filen}][password]" >
+                                                <input type="text" class="form-control" name="afiles[${filen}][password]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
                                                 <label>Size :</label>
-                                                <input type="text" class="form-control" name="Files[${filen}][size]" >
+                                                <input type="text" class="form-control" name="afiles[${filen}][size]" >
                                             </div>
                                         </div>
                                     </div>`);

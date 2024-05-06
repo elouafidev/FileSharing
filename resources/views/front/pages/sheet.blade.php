@@ -61,7 +61,7 @@
                                             <div class="nk-block">
                                                 <div class="nk-block-head nk-block-head-sm nk-block-between">
                                                     <h5 class="title">{{$file->name}}</h5>
-                                                    <a href="{{$file->url}}" class="link ">{{__('Download')}}</a>
+                                                    <a href="{{\Illuminate\Support\Str::contains(\Illuminate\Support\Str::lower($file->url),'http') ? $file->url : "http://{$file->url}" }}" class="link ">{{__('Download')}}</a>
                                                 </div><!-- .nk-block-head -->
                                                 <div class="profile-ud-list">
                                                     <div class="profile-ud-item">

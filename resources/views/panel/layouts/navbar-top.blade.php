@@ -2,7 +2,7 @@
 <nav class="navbar navbar-static-top" role="navigation">
     {{-- Sidebar toggle button --}}
     <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-        <span class="sr-only">Toggle navigation</span>
+        <span class="sr-only">{{__('Toggle navigation')}}</span>
     </a>
     {{-- Navbar Right Menu --}}
     <div class="navbar-custom-menu">
@@ -18,8 +18,6 @@
                 <ul class="dropdown-menu">
                     {{-- The user image in the menu --}}
                     <li class="user-header">
-                        <img src="{{asset('backend/img/avatar5.png')}}" class="img-circle" alt="User Image">
-
                         <p>
                             {{ Auth::user()->name }}
                         </p>
@@ -27,10 +25,11 @@
                     {{-- Menu Footer --}}
                     <li class="user-footer">
                         <div class="pull-left">
-                            <a href="#" class="btn btn-default btn-flat">Profile</a>
+                            <a href="{{route('panel.user.profile')}}" class="btn btn-default btn-flat">{{__('Profile')}}</a>
                         </div>
                         <div class="pull-right">
-                            <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Sign out</a>
+                            <a class="btn btn-default btn-flat" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{__('Sign
+                                out')}}</a>
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">@csrf</form>
                         </div>
                     </li>

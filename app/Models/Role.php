@@ -26,4 +26,8 @@ class Role extends Model
     public static function find($name){
         return Role::where('name','=',$name)->get()->first();
     }
+    public static function findByName($name)
+    {
+        return Role::where('name','=',$name)->first();
+    }
 }

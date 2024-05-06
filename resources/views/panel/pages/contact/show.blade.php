@@ -45,7 +45,7 @@
                 {{-- /.box-body --}}
 
                 <div class="box-footer">
-                    <a href="{{ route('Contact')}} " class="btn btn-info  "> Retour </a>
+                    <a href="{{ route('panel.contact.index')}} " class="btn btn-info  "> Retour </a>
                 </div>
             </form>
         </div>

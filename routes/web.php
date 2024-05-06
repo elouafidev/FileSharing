@@ -23,8 +23,11 @@ Route::get('/FileManager', [App\Http\Controllers\Front\FileManagerController::cl
 Route::get('/FileManager/Sheet', [App\Http\Controllers\Front\SheetController::class, 'index'])->name('file_manager.sheet');
 Route::get('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'index'])->name('contact');
 Route::post('/contact-us', [App\Http\Controllers\Front\ContactController::class, 'store'])->name('contact.store');
-
-Route::get('DoNotHaveAccess',function (){ return view('front.pages.no_have_access');})->name('noaccess');
+Route::group(['middleware' => 'auth.visitor'], function () {
+    Route::get('profile', [App\Http\Controllers\Front\ProfileController::class, 'index'])->name('profile');
+    Route::put('profile', [App\Http\Controllers\Front\ProfileController::class, 'update'])->name('profile.update');
+});
+Route::get('DoNotHaveAccess',[\App\Http\Controllers\Front\AccessController::class,'index'])->name('noaccess');
 Route::get('login', [App\Http\Controllers\Front\Auth\LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [App\Http\Controllers\Front\Auth\LoginController::class, 'login']);
 Route::post('logout', [App\Http\Controllers\Front\Auth\LoginController::class, 'logout'])->name('logout');
