@@ -27,6 +27,6 @@ class ProfileController extends Controller
             'email' => $request->input('email'),
             'password' => Hash::make($request->input('password')),
         ]);
-        return Redirect::back()->with('success', 'Profile updated successfully');
+        return Redirect::back()->with('success', __('Profile updated successfully'));
     }
 }

@@ -18,6 +18,6 @@ class ContactController extends Controller
             'message' => 'required',
         ]);
         Contact::create($request->all());
-        return Redirect()->back()->with('success', 'Message sent successfully');
+        return Redirect()->back()->with('success', __('Message sent successfully'));
     }
 }

@@ -11,11 +11,6 @@ use Illuminate\Validation\Rule;
 
 class FolderController extends Controller
 {
-    public function showParam($id){
-
-    }
-
-
     public function index(Request $request)
     {
         $Folder = null;
@@ -57,7 +52,8 @@ class FolderController extends Controller
         $Folder->hidden = $request->input('hidden');
 
         $Folder->save();
-        return Redirect::route('panel.folder.index',['id' => $request->input('parent_id')]);
+        return Redirect::route('panel.folder.index',['id' => $request->input('parent_id')])
+            ->with('success', __('Folder created successfully'));
     }
 
 
@@ -70,7 +66,8 @@ class FolderController extends Controller
         $ParentFolder = $Folder->ParentFolder_id;
         $Folder->delete();
 
-        return Redirect::route('panel.folder.index',['id' => $ParentFolder ]);
+        return Redirect::route('panel.folder.index',['id' => $ParentFolder ])
+            ->with('success', __('Folder deleted successfully'));
     }
 
 
@@ -97,7 +94,8 @@ class FolderController extends Controller
 
 
 
-        return Redirect::route('panel.folder.index',['id' => $Folder->parent_id ]);
+        return Redirect::route('panel.folder.index',['id' => $Folder->parent_id ])
+            ->with('success', __('Folder updated successfully'));
     }
     function getPathFolders($ParentFolder_id)
     {

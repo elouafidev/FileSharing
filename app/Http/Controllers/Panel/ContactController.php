@@ -21,6 +21,6 @@ class ContactController extends Controller
         if(empty($Contact = Contact::find($id))) abort(404);
         $Contact->delete();
 
-        return Redirect::route('panel.contact.index');
+        return Redirect::route('panel.contact.index')->with('success', __('Message deleted successfully'));
     }
 }

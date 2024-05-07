@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="password">Passcode</label>
+                        <label class="form-label" for="password">{{__('Passcode')}}</label>
                         <div class="form-control-wrap">
                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password">
                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="password_confirmation">Confirmation Passcode</label>
+                        <label class="form-label" for="password_confirmation">{{__('Confirmation Passcode')}}</label>
                         <div class="form-control-wrap">
                             <a href="#" class="form-icon form-icon-right passcode-switch lg" data-target="password_confirmation">
                                 <em class="passcode-icon icon-show icon ni ni-eye"></em>
@@ -65,10 +65,10 @@
                         <button class="btn btn-lg btn-primary btn-block">{{__('Register')}}</button>
                     </div>
                 </form>
-                <div class="form-note-s2 text-center pt-4"> Already have an account? <a href="{{route('login')}}"><strong>{{__('Sign in instead')}}</strong></a>
+                <div class="form-note-s2 text-center pt-4"> {{__('Already have an account?')}} <a href="{{route('login')}}"><strong>{{__('Sign in instead')}}</strong></a>
                 </div>
                 <div class="text-center pt-4 pb-3">
-                    <h6 class="overline-title overline-title-sap"><span>OR</span></h6>
+                    <h6 class="overline-title overline-title-sap"><span>{{__('OR')}}</span></h6>
                 </div>
                 <ul class="nav justify-center gx-8">
                     <li class="nav-item"><a class="nav-link" href="{{route('auth.google')}}">Google</a></li>

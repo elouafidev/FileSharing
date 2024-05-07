@@ -57,7 +57,8 @@ class SheetController extends Controller
                 $File->save();
             }
         }
-        return Redirect::route('panel.folder.index',['folder_id' => $folder_id])->with('success', 'Sheet Created successfully');;
+        return Redirect::route('panel.folder.index',['folder_id' => $folder_id])
+            ->with('success', __('Sheet Created successfully'));
     }
 
 
@@ -65,7 +66,8 @@ class SheetController extends Controller
         File::where('sheet_id',$id)->delete();
         $folder_id = Sheet::find($id)->folder_id;
         Sheet::find($id)->delete();
-        return Redirect::route('panel.folder.index',['id' => $folder_id])->with('success', 'Sheet deleted successfully');;
+        return Redirect::route('panel.folder.index',['id' => $folder_id])
+            ->with('success', __('Sheet deleted successfully'));
     }
 
     public function edit($folder_id,$id){
@@ -121,6 +123,6 @@ class SheetController extends Controller
                 $File->save();
             }
         return Redirect::route('panel.folder.index',['index' => $Sheet->folder_id])
-            ->with('success', 'Sheet updated successfully');
+            ->with('success', __('Sheet updated successfully'));
     }
 }

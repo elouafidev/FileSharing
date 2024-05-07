@@ -58,7 +58,7 @@
                                             </div>
                                             <div class="col-md-12">
                                                 <div class="form-group">
-                                                    <button type="submit" class="btn btn-lg btn-primary">{{__('Submit')}}</button>
+                                                    <button type="submit" class="btn btn-lg btn-primary">{{__('send')}}</button>
                                                 </div>
                                             </div>
                                         </div>

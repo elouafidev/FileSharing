@@ -16,16 +16,17 @@
     <div class="container">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"> Create Sheet</h3>
+                <h3 class="box-title"> {{__('Create Sheet')}}</h3>
             </div>
             <div class="box-footer">
                 <div class="row">
                     <div class="col-md-6">
                         <div class="col-md-4">
-                            <a href="{{ Route('panel.folder.index',['id' => $folder_id])}} " class="btn btn-info  "> Retour </a>
+                            <a href="{{ Route('panel.folder.index',['id' => $folder_id])}} " class="btn btn-info  ">
+                                {{__('Retour')}} </a>
                         </div>
                         <div class="col-md-4">
-                            <input type="button" value="Create" class="btn btn-success" onclick="$('#formCreateSheet').submit();">
+                            <input type="button" value="{{__('Create')}}" class="btn btn-success" onclick="$('#formCreateSheet').submit();">
                         </div>
                     </div>
                 </div>
@@ -37,27 +38,27 @@
                     <input type="hidden" name="folder_id" value="{{$folder_id}}">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label>title :*</label> <br>
+                        <label>{{__('title')}} :*</label> <br>
                         <input type="text" class="form-control" name="title" value="{{old('title')}}" >
                     </div>
                     <div class="form-group Description">
-                        <label>Description :</label> <br>
+                        <label>{{__('Description')}} :</label> <br>
                         <textarea class="form-control" name="description">{{old('description')}}</textarea>
                     </div>
                     <div class="form-group Description">
-                        <label>Content ({{__('Documentation')}}):</label> <br>
+                        <label>{{__('Content')}} ({{__('Documentation')}}):</label> <br>
                         <textarea class="form-control" name="content">{{old('content')}}</textarea>
                     </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-md-6">
-                                <label>Hidden :</label>
+                                <label>{{__('Hidden')}} :</label>
                                 <input type="hidden" name="hidden" value="0">
                                 <input type="checkbox"  class="minimal" name="hidden" value="1" {{ !empty(old('hidden')) && old('hidden') == 1 ? 'checked' :''}}>
                             </div>
                         </div>
                     </div>
-                    <label>Files :</label> <br>
+                    <label>{{__('Files')}} :</label> <br>
                     <div class="form-group files" id="filesgroup">
                         <div class="form-group">
                             <button type="button" class="btn btn-success" name="add_file">{{__('Add File')}}</button>
@@ -66,29 +67,29 @@
                             @foreach(old('Files') as  $key => $File)
 
                                 <div class="files row">
-                                    <label>ADD File ID: {{$key}}</label> <br>
+                                    <label>{{__('ADD File ID')}}: {{$key}}</label> <br>
                                     <button type="button" name="delete_file" data-id="{{$key}}" data-type="add">{{__('delete')}}</button>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>File Name :</label>
+                                            <label>{{__('File Name')}} :</label>
                                             <input type="text" class="form-control" name="Files[{{$key}}][name]" value="{{$File['name']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>url Host :</label>
+                                            <label>{{__('url')}} :</label>
                                             <input type="url" class="form-control" name="Files[{{$key}}][url]" value="{{$File['url']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Password :</label>
+                                            <label>{{__('Password')}} :</label>
                                             <input type="text" class="form-control" name="Files[{{$key}}][password]" value="{{$File['password']}}">
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="form-group">
-                                            <label>Size :</label>
+                                            <label>{{__('Size')}} :</label>
                                             <input type="text" class="form-control" name="Files[{{$key}}][size]" value="{{$File['size']}}">
                                         </div>
                                     </div>
@@ -115,29 +116,29 @@
         $('button[name=add_file]').on( "click", function (){
             filen= filen+1;
             $('#filesgroup').append(`<div class="files row">
-                                    <label>ADD File ID: ${filen}</label> <br>
+                                    <label>{{__('ADD File ID')}}: ${filen}</label> <br>
                                     <button type="button" name="delete_file" data-id="${filen}" data-type="add">{{__('delete')}}</button>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>File Name :</label>
+                                                <label>{{__('File Name')}} :</label>
                                                 <input type="text" class="form-control" name="Files[${filen}][name]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>url Host :</label>
+                                                <label>{{__('url')}} :</label>
                                                 <input type="url" class="form-control" name="Files[${filen}][url]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>Password :</label>
+                                                <label>{{__('Password')}} :</label>
                                                 <input type="text" class="form-control" name="Files[${filen}][password]" >
                                             </div>
                                         </div>
                                         <div class="col-12">
                                             <div class="form-group">
-                                                <label>Size :</label>
+                                                <label>{{__('Size')}} :</label>
                                                 <input type="text" class="form-control" name="Files[${filen}][size]" >
                                             </div>
                                         </div>

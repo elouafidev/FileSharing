@@ -11,13 +11,13 @@
                                 <h3 class="nk-block-title page-title">{{$sheet->title}}</h3>
                                 <div class="nk-block-des text-soft">
                                     <ul class="list-inline">
-                                        <li>Creater: <span class="text-base">{{$sheet->createrUser()->first()->name}}</span></li>
-                                        <li>Created at : <span class="text-base">{{\Illuminate\Support\Carbon::parse($sheet->created_at)->format('d/m/yy')}}</span></li>
+                                        <li>{{__('Creater')}}: <span class="text-base">{{$sheet->createrUser()->first()->name}}</span></li>
+                                        <li>{{__('Created at')}} : <span class="text-base">{{\Illuminate\Support\Carbon::parse($sheet->created_at)->format('d/m/yy')}}</span></li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="nk-block-head-content">
-                                <a href="{{route('file_manager',['id' => $sheet->folder_id])}}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>Back</span></a>
+                                <a href="{{route('file_manager',['id' => $sheet->folder_id])}}" class="btn btn-outline-light bg-white d-none d-sm-inline-flex"><em class="icon ni ni-arrow-left"></em><span>{{__('Back')}}</span></a>
                                 <a href="{{route('file_manager',['id' => $sheet->folder_id])}}" class="btn btn-icon btn-outline-light bg-white d-inline-flex d-sm-none"><em class="icon ni ni-arrow-left"></em></a>
                             </div>
                         </div>
@@ -29,7 +29,7 @@
                                     <div class="card-inner">
                                         <div class="nk-block">
                                             <div class="nk-block-head">
-                                                <h5 class="title">Personal Information</h5>
+                                                <h5 class="title">{{__('Personal Information')}}</h5>
                                             </div><!-- .nk-block-head -->
                                             <div class="bq-note">
                                                 <div class="bq-note-item">

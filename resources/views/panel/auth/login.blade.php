@@ -10,7 +10,7 @@
         </div>
         {{-- /.login-logo --}}
         <div class="login-box-body">
-            <p class="login-box-msg">Sign in to start your session</p>
+            <p class="login-box-msg">{{__('Sign in to start your session')}}</p>
             @if(\Session::has('message'))
                 <p class="alert alert-info">
                     {{ \Session::get('message') }}
@@ -19,7 +19,7 @@
                 <form  method="POST" action="{{ route('panel.login') }}">
                     {{ csrf_field() }}
                     <div class="form-group has-feedback  {{ $errors->has('email') ? ' has-error' : '' }}">
-                        <input type="email" name="email" class="form-control " placeholder="Email">
+                        <input type="email" name="email" class="form-control " placeholder="{{__('Email')}}">
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                         @if ($errors->has('email'))
                             <span class="help-block">
@@ -28,7 +28,7 @@
                         @endif
                     </div>
                     <div class="form-group has-feedback {{ $errors->has('password') ? ' has-error' : '' }}">
-                        <input type="password" name="password" class="form-control " placeholder="Password">
+                        <input type="password" name="password" class="form-control " placeholder="{{__('Password')}}">
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                         @if ($errors->has('password'))
                             <span class="help-block">
@@ -39,7 +39,7 @@
                     <div class="form-group has-feedback">
                         {{-- <div class="g-recaptcha" data-sitekey="{{env('CAPTCHA_KEY')}}"></div> --}}
                         <div class="form-group{{ $errors->has('g-recaptcha-response') ? ' has-error' : '' }}">
-                            <label class="control-label">Captcha</label>
+                            <label class="control-label">{{__('Captcha')}}</label>
                             <div class="pull-center">
                                 {{--                    {!! app('captcha')->display() !!}--}}
                                 @if ($errors->has('g-recaptcha-response'))
@@ -54,13 +54,13 @@
                         <div class="col-xs-8">
                             <div class="checkbox icheck">
                                 <label>
-                                    <input type="checkbox" name="remember"> Remember Me
+                                    <input type="checkbox" name="remember"> {{__('Remember Me')}}
                                 </label>
                             </div>
                         </div>
                         {{-- /.col --}}
                         <div class="col-xs-4">
-                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{__('Sign In')}}</button>
                         </div>
                         {{-- /.col --}}
                     </div>

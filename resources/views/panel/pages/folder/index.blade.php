@@ -1,6 +1,6 @@
 @extends('panel.layouts.app')
 
-@section('title', 'Storage')
+@section('title', __('Storage'))
 @section('head')
     <style>
         tr[data-href]:hover td {
@@ -28,10 +28,10 @@
                             </div>
                         @endif
                         <div class="col-md-4">
-                            <a type="button" class="btn btn-block btn-default " href="{{Route('panel.folder.create',[ 'parent_id' =>  $folder->id]) }}">Create Folder</a>
+                            <a type="button" class="btn btn-block btn-default " href="{{Route('panel.folder.create',[ 'parent_id' =>  $folder->id]) }}">{{__('Create Folder')}}</a>
                         </div>
                         <div class="col-md-4">
-                            <a type="button" class="btn btn-block btn-default " href="{{ Route('panel.folder.sheet.create',[ 'folder_id' =>   $folder->id ]) }}">Create Sheet</a>
+                            <a type="button" class="btn btn-block btn-default " href="{{ Route('panel.folder.sheet.create',[ 'folder_id' =>   $folder->id ]) }}">{{__('Create Sheet')}}</a>
                         </div>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Tools</th>
+                        <th>{{__('Name')}}</th>
+                        <th>{{__('Description')}}</th>
+                        <th>{{__('Tools')}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -65,7 +65,7 @@
                                     {{ method_field('DELETE') }}
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <button onclick="return(confirm('Are you sure you want to delete this entry?'));" type="submit" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span></button>
+                                            <button onclick="return(confirm('{{__('Are you sure you want to delete this entry?')}}'));" type="submit" class="btn btn-danger btn-block"><span class="glyphicon glyphicon-trash"></span></button>
                                         </div>
                                         <div class="col-md-6">
                                             <a href="{{Route('panel.folder.edit',[ 'id' => $folder['id']])}} " class="btn btn-warning btn-block"><span class="glyphicon glyphicon-pencil"></span> </a>
@@ -86,7 +86,7 @@
                                     {{ method_field('DELETE') }}
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button onclick="return(confirm('Are you sure you want to delete this entry?'));" type="submit" class="btn btn-danger btn-block">
+                                            <button onclick="return(confirm('{{__('Are you sure you want to delete this entry?')}}'));" type="submit" class="btn btn-danger btn-block">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </div>

@@ -19,7 +19,7 @@
                             <label class="form-label" for="default-01">{{__('Email or Username')}}</label>
                         </div>
                         <div class="form-control-wrap">
-                            <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" id="default-01" placeholder="Enter your email address or username">
+                            <input type="text" class="form-control form-control-lg @error('email') is-invalid @enderror" name="email" id="default-01" placeholder="{{__('Enter your email address or username')}}">
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>

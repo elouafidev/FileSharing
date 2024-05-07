@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zxx" class="js">
+<html  lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="js">
 
 <head>
 
@@ -30,12 +30,12 @@
         <!-- sidebar @s -->
         @php($routes=[
             [
-                'name' => 'Gestionnaire de fichiers',
+                'name' => __('Gestionnaire de fichiers'),
                 'route' => 'file_manager',
                 'icon' => 'icon ni ni-coins'
             ],
             [
-                'name' => 'Contact-Nous',
+                'name' => __('Contact-Nous'),
                 'route' => 'contact',
                 'icon' => 'icon ni ni-text-rich'
             ],

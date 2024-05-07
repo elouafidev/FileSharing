@@ -6,8 +6,7 @@
             </div>
             <div class="nk-header-brand d-xl-none">
                 <a href="{{route('home')}}" class="logo-link">
-                    <img class="logo-light logo-img" src="{{asset("images/logo.png")}}" srcset="{{asset("images/logo2x.png")}} 2x" alt="logo">
-                    <img class="logo-dark logo-img" src="{{asset("images/logo-dark.png")}}" srcset="{{asset("images/logo-dark2x.png")}} 2x" alt="logo-dark">
+                    <h6>{{config('app.name')}}</h6>
                 </a>
             </div><!-- .nk-header-brand -->
             <div class="nk-header-tools">

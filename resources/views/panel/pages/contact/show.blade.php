@@ -1,6 +1,5 @@
 @extends('panel.layouts.app')
-
-@section('title', 'show Contact')
+@section('title', __('show Contact'))
 @section('head')
     <style>
         .group{
@@ -14,7 +13,7 @@
     <div class="container">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title">Contact</h3>
+                <h3 class="box-title">{{__('Contact')}}</h3>
             </div>
             {{-- /.box-header --}}
             {{-- form start --}}
@@ -26,18 +25,18 @@
                         <input type="text" class="form-control" value="{{old('id',$Contact->id)}}"  readonly>
                     </div>
                     <div class="form-group ">
-                        <label>Full Name :</label> <br>
+                        <label>{{__('Full Name')}} :</label> <br>
                         <input type="text" class="form-control" name="FullName" value="{{old('full_name',$Contact->full_name)}}"  readonly>
 
                     </div>
 
                     <div class="form-group">
-                        <label>Subject :</label> <br>
+                        <label>{{__('Subject')}} :</label> <br>
                         <input type="text" class="form-control" name="Subject" value="{{old('subject',$Contact->subject)}}"  readonly>
                     </div>
 
                     <div class="form-group">
-                        <label>Message :</label> <br>
+                        <label>{{__('Message')}} :</label> <br>
                         <textarea class="form-control" name="Message" readonly>{{  old('message',$Contact->message)}} </textarea>
 
                     </div>
@@ -45,7 +44,7 @@
                 {{-- /.box-body --}}
 
                 <div class="box-footer">
-                    <a href="{{ route('panel.contact.index')}} " class="btn btn-info  "> Retour </a>
+                    <a href="{{ route('panel.contact.index')}} " class="btn btn-info  "> {{__('Retour')}} </a>
                 </div>
             </form>
         </div>

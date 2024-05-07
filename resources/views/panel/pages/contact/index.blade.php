@@ -1,6 +1,6 @@
 @extends('panel.layouts.app')
 
-@section('title', 'Contacts List')
+@section('title', __('Contacts List'))
 @section('head')
     <style>
         tr[data-href]:hover td {
@@ -17,7 +17,7 @@
     <div class="container">
         <div class="box box-primary">
             <div class="box-header with-border">
-                <h3 class="box-title"> Contacts list</h3>
+                <h3 class="box-title"> {{__('Contacts list')}}</h3>
             </div>
             {{-- /.box-header --}}
             {{-- form start --}}
@@ -27,10 +27,10 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Subject</th>
-                        <th>Tools</th>
+                        <th>{{__('Full Name')}}</th>
+                        <th>{{__('Email')}}</th>
+                        <th>{{__('Subject')}}</th>
+                        <th>{{__('Tools')}}</th>
                     <tbody>
                     @foreach($Contacts as $Contact)
                         <tr data-href="{{route('panel.contact.show',['id'=>$Contact->id])}}">
@@ -44,7 +44,7 @@
                                     {{ method_field('DELETE') }}
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button onclick="return(confirm('Are you sure you want to delete this entry?'));" type="submit" class="btn btn-danger btn-block">
+                                            <button onclick="return(confirm('{{__('Are you sure you want to delete this entry?')}}'));" type="submit" class="btn btn-danger btn-block">
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </div>

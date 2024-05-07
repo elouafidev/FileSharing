@@ -10,7 +10,7 @@
                                 <div class="nk-block-head-xs">
                                     <div class="nk-block-between g-2">
                                         <div class="nk-block-head-content">
-                                            <h6 class="nk-block-title title">Browse Files</h6>
+                                            <h6 class="nk-block-title title">{{__('Browse Files')}}</h6>
                                             @foreach($folder->Path() as $parentFolder)
                                                 <a href="{{ Route('file_manager',[ 'id' => $parentFolder['id']]) }}" >{{$parentFolder['name']}}</a><a>/</a>
                                             @endforeach
@@ -23,13 +23,13 @@
                                             <div class="nk-files-head">
                                                 <div class="nk-file-item">
                                                     <div class="nk-file-info">
-                                                        <div class="tb-head">Name</div>
+                                                        <div class="tb-head">{{__('Name')}}</div>
                                                     </div>
                                                     <div class="nk-file-meta">
-                                                        <div class="tb-head">Last Opened</div>
+                                                        <div class="tb-head">{{__('Last Opened')}}</div>
                                                     </div>
                                                     <div class="nk-file-members">
-                                                        <div class="tb-head">Members</div>
+                                                        <div class="tb-head">{{__('Members')}}</div>
                                                     </div>
                                                     <div class="nk-file-actions">
                                                         <div class="dropdown">
@@ -85,7 +85,7 @@
                                                         <div class="tb-lead">{{\Carbon\Carbon::parse($folder['created_at'])->format('d/m/Y')}}</div>
                                                     </div>
                                                     <div class="nk-file-members">
-                                                        <div class="tb-lead">Only Me</div>
+                                                        <div class="tb-lead">{{__('Only Me')}}</div>
                                                     </div>
                                                     <div class="nk-file-actions">
                                                     </div>
@@ -121,7 +121,7 @@
                                                                 <div class="tb-lead">{{\Carbon\Carbon::parse($sheet->created_at)->format('d/m/yy')}}</div>
                                                             </div>
                                                             <div class="nk-file-members">
-                                                                <div class="tb-lead">Only Me</div>
+                                                                <div class="tb-lead">{{__('Only Me')}}</div>
                                                             </div>
                                                             <div class="nk-file-actions">
                                                             </div>
